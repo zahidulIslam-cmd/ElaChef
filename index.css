@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: radial-gradient(circle at center, #18181b 0%, #000000 100%);
+  font-family: 'Outfit', sans-serif;
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-zinc-900/50 backdrop-blur-md border border-white/10 rounded-2xl;
+    contain: content;
+  }
+  
+  .btn-primary {
+    @apply bg-green-600 text-white font-bold py-3 px-6 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2;
+    touch-action: manipulation;
+  }
+  
+  @media (hover: hover) {
+    .btn-primary:hover {
+      @apply bg-green-500;
+    }
+  }
+  
+  .btn-secondary {
+    @apply bg-zinc-800 text-zinc-100 font-bold py-3 px-6 rounded-xl transition-all active:scale-95 flex items-center justify-center gap-2;
+    touch-action: manipulation;
+  }
+
+  @media (hover: hover) {
+    .btn-secondary:hover {
+      @apply bg-zinc-700;
+    }
+  }
+
+  .performance-list {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 500px;
+  }
+}
+
+/* Custom animations */
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}

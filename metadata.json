@@ -1,0 +1,7 @@
+{
+  "name": "ElaChef",
+  "description": "From Pantry to Plate, Instantly. Master your kitchen with zero-trip recipes and intelligent inventory scanning.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
